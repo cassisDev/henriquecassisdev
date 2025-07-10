@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Henrique Cassis - Desenvolvedor Web Full Stack">
+    <meta name="keywords" content="desenvolvedor web, chatbots, ecommerce, frontend, backend">
+    <title>Henrique Cassis - DevWeb</title>
+    <style>
+        @font-face {
+            font-family: 'Courier Prime';
+            src: url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+            font-display: swap;
+        }
+
+        body {
+            background-color: #000000;
+            color: rgba(4, 248, 25, 0.9);
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Header com Efeito de Digitação */
+        header {
+            background-color: #000000;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" x="50" y="50" fill="rgba(7,194,23,0.1)"/></svg>');
+            background-attachment: fixed;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem; /* Adiciona padding ao header */
+            text-align: center;
+            border-bottom: 1px solid rgba(4, 248, 25, 0.9);
+        }
+
+        #typing-effect {
+            overflow: hidden;
+            border-right: 2px solid rgba(4, 248, 25, 0.9);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation:
+                typing 3s steps(30, end),
+                blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: rgba(4, 248, 25, 0.9)};
+        }
+
+        header p {
+            color: rgb(254, 255, 244);
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* estilos para as linhas verdes do menu */
+        .green-line-full-width {
+            border: none;
+            height: 1px;
+            background-color: rgba(4, 248, 25, 0.9);
+            width: 100%;
+            margin: 0.3rem 0; /* espaçamento vertical acima e abaixo da linha */
+        }
+
+        /* estilos para a navegação */
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        header nav ul li {
+            margin: 10px 15px;
+        }
+
+        header nav ul li a {
+            color: rgba(4, 248, 25, 0.9); /* cor dos links */
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s, color 0.3s, border-radius 0.3s;
+        }
+
+        header nav ul li a:hover,
+        header nav ul li a:focus {
+            background-color: rgba(4, 248, 25, 0.9); /* fundo verde ao passar o mouse */
+            color: #000; /* texto preto ao passar o mouse */
+            border-radius: 4px;
+            outline: none;
+        }
+
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 300px;
+            background-color: #000000;
+            padding: 1.5rem;
+            border: 1px solid rgba(4, 248, 25, 0.9);
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(4, 248, 25, 0.9);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .section:hover {
+            box-shadow: 0 0 15px rgba(4, 248, 25, 0.9);
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: rgba(4, 248, 25, 0.9);
+            border-bottom: 1px solid rgba(4, 248, 25, 0.9);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 1rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        a {
+            color: rgba(4, 248, 25, 0.9);
+            text-decoration: none;
+            position: relative;
+        }
+
+        a:hover::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background: rgba(4, 248, 25, 0.9);
+            animation: underline 0.3s linear;
+        }
+
+        @keyframes underline {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+#about-section p {
+    color: #f5f5f5;
+}
+
+        #contato {
+            max-width: 400px;
+            margin: 3rem auto;
+            background-color: #000000;
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid rgba(4, 248, 25, 0.9);
+            box-shadow: 0 0 10px rgba(4, 248, 25, 0.9);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: rgb(255, 250, 250);
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            color: rgba(4, 248, 25, 0.9);
+            font-size: 0.9rem;
+        }
+
+        input, textarea {
+            padding: 0.7rem;
+            background-color: #111;
+            border: 1px solid rgba(7, 194, 23, 0.2);
+            border-radius: 4px;
+            color: rgba(7, 194, 23, 0.8);
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: rgba(7, 194, 23, 0.5);
+            box-shadow: 0 0 8px rgba(7, 194, 23, 0.2);
+        }
+
+        button {
+            padding: 0.8rem;
+            background-color: #000;
+            color: rgba(7, 194, 23, 0.8);
+            border: 1px solid rgba(7, 194, 23, 0.5);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Courier Prime', 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: rgba(7, 194, 23, 0.1);
+            letter-spacing: 2px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #000;
+            color: rgba(7, 194, 23, 0.6);
+            border-top: 1px solid rgba(7, 194, 23, 0.1);
+            font-size: 0.9rem;
+        }
+
+        .terminal {
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px line rgba(7, 194, 23, 0.2);
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .terminal p {
+            margin: 0.5rem 0;
+            font-family: 'Courier Prime', monospace;
+            text-align: center;
+        }
+
+        .glow {
+            color: rgba(7, 194, 23, 0.9);
+            text-shadow: 0 0 5px rgba(7, 194, 23, 0.3);
+            margin: auto;
+        }
+
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { opacity: 1 }
+            50% { opacity: 0 }
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: rgba(7, 194, 23, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(7, 194, 23, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: rgba(7, 194, 23, 0.9);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(7,194,23,0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(7,194,23,0); }
+            100% { box-shadow: 0 0 0 0 rgba(7,194,23,0); }
+        }
+
+        .whatsapp-float img {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 0 2px #000);
+        }
+
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .section {
+                min-width: auto;
+                width: 100%;
+            }
+
+            #contato {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+
+            header {
+                min-height: 30vh;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <header>
+    <h1 id="typing-effect" style="display: inline-block;">Henrique Cassis - DevWeb Full Stack</h1>
+    <div class="texto1">
+        <p>Criação de sites, landing pages, e-commerces e chatbots. Especialista em deploy com VPS própria e servidores Hestia.</p>
+    </div>
+
+    <hr class="green-line-full-width">
+    <nav>
+        <ul>
+            <li><a href="#skills-section">Skills</a></li>
+            <li><a href="#portfolio-section">Projetos</a></li>
+            <li><a href="#about-section">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    <hr class="green-line-full-width">
+
+    <div class="terminal" id="skills-section">
+        <p><span class="glow">>-------SKILLS:-------</span></p>
+        <hr />
+        <ul>
+            <li>Criação de chatbots e automações web</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Node.js, WordPress, MySQL</li>
+            <li>Deploy com VPS, Hestia, WinSCP e PuTTY</li>
+        </ul>
+        <hr />
+    </div>
+
+</header>
+
+
+    <section class="section" id="about-section">
+  <h2>Sobre mim</h2>
+  <p>Sou Henrique Cassis, desenvolvedor web com foco em soluções completas — do código à infraestrutura. Trabalho com HTML, CSS, JavaScript, Node.js e WordPress. Também configuro e gerencio servidores próprios (VPS com Hestia), garantindo performance, segurança e autonomia total nos projetos. Atendo desde landing pages a e-commerces e automações com chatbots.</p>
+</section>
+
+<h2 id="portfolio-section">Portfólio:</h2>
+<main>
+
+        <section class="section">
+            <h2>WebDesign</h2>
+            <ul>
+                <li>
+                    <a href="https://henriquecassis.wordpress.com" target="_blank">
+                        <strong>Blog de Viagens</strong> > henriquecassis.blog
+                    </a>
+                <li>
+                    <a href="https://nexusflorestal.com.br" target="_blank">
+                        <strong>Nexus Florestal</strong> > nexusflorestal.com.br
+                    </a>
+                </li>
+                <li>
+                    <a href="https://polygonstatus.site" target="_blank">
+                        <strong>Polygon Coin Tracker</strong> > polygonstatus.site
+                    </a>
+                </li>
+                <li>
+                    <a href="https://henriquecassisdev.com/clima-web" target="_blank">
+                        <strong>ClimAtual</strong> > ClimAtual.App
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>APLICAÇÕES</h2>
+            <ul>
+                <li>
+                    <a href="https://henriquecassisdev.com/chatbot" target="_blank">
+                        <strong> ChatBot pessoal</strong> > modelo de chatbot
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://henriquecassisdev.com/clima-web" target="_blank">
+                        <strong>Previsão Do Tempo</strong> > App download
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://henriquecassisdev.com/calculadora-de-custos/" target="_blank">
+                        <strong>Calculadora de Custos</strong> > personalizado para o seu negócio!
+                </li>
+
+                <li>
+                    <a href="https://henriquecassisdev.com/calculadora-de-custos/" target="_blank">
+                        <strong>Calculadora de Custos</strong> > personalizado para o seu negócio!
+                </li>
+
+            </ul>
+
+
+
+        </section>
+    </main>
+
+    <section id="contato">
+        <h2>Fale Comigo</h2>
+        <div class="contact-info">
+            <p>Informações de contato:</p>
+            <hr></hr>
+            <p><strong class="glow">WhatsApp:</strong> (19) 9 9643-2877</p>
+            <hr></hr>
+            <p><strong class="glow">E-mail:</strong> henriquecassisdev@gmail.com</p>
+            <hr></hr>
+            <p><strong class="glow">Ou preencha o formulário abaixo:</strong></p>
+        </div>
+        <form action="https://formsubmit.co/henriquecassisdev@gmail.com" method="POST" aria-label="Formulário de contato">
+            <input type="hidden" name="_next" value="https://henriquecassisdev.com/obrigado.html">
+            <input type="hidden" name="_captcha" value="false">
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required placeholder="Digite seu email">
+
+            <label for="telefone">Telefone/WhatsApp:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX">
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Descreva seu projeto..."></textarea>
+
+            <button type="submit" aria-label="Enviar mensagem">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Henrique Cassis - Dev Full Stack</p>
+    </footer>
+
+    <a href="https://wa.me/5519996432877?text=Olá,%20tenho%20interesse%20em%20seu%20trabalho!"
+       class="whatsapp-float"
+       target="_blank"
+       aria-label="Me chame no WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </a>
+
+    <script>
+    document.querySelectorAll('header nav ul li a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita o comportamento padrão do link
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
